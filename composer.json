@@ -1,0 +1,13 @@
+{
+    "name": "interfaceable/nebula",
+    "description": "Nebula admin panel for Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Percy Mamedy",
+            "email": "percymamedy@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
