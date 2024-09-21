@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace {{ namespace }};
 
-use Nebula\Providers\PanelServiceProvider
+use Nebula\Http\Middleware\Authenticate;
+use Nebula\Panel;
+use Nebula\Providers\PanelServiceProvider;
 
 class {{ class }} extends PanelServiceProvider
 {
@@ -13,6 +15,15 @@ class {{ class }} extends PanelServiceProvider
      */
     public function build(Panel $panel): Panel
     {
-        return $panel;
+        return $panel
+            ->id('{{ id }}')
+            ->path('{{ prefix }}')
+            ->addLoginPage()
+            ->withMiddleware([
+                'web',
+            ])
+            ->withAuthMiddleware([
+                Authenticate::class,
+            ]);
     }
 }

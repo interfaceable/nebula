@@ -17,9 +17,9 @@ class Nebula
     protected array $panels = [];
 
     /**
-     * Register a new panel.
+     * Add a new panel.
      */
-    public function registerPanel(Panel $panel): void
+    public function addPanel(Panel $panel): void
     {
         $this->panels[] = $panel;
     }

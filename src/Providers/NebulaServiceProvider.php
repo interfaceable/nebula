@@ -15,9 +15,8 @@ class NebulaServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        dd('e');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'nebula');
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'nebula');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -31,8 +30,6 @@ class NebulaServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(Nebula::class, function () {
-            return new Nebula();
-        });
+        $this->app->singleton(Nebula::class, fn () => new Nebula());
     }
 }
